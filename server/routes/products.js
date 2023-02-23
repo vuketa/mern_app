@@ -5,12 +5,16 @@ const {
   createProduct,
   deleteProduct,
   updateProduct,
+  getView1,
 } = require("../controllers/productController");
 
 const router = express.Router();
 
 // GET all products
 router.get("/", getProducts);
+
+// GET all view1
+router.get("/view1", getView1);
 
 // GET a single product
 router.get("/:id", getProduct);

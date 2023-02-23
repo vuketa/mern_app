@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 
 const Schema = mongoose.Schema;
 
-const productSchema = new Schema(
+const view1Schema = new Schema(
   {
     name: {
       type: String,
@@ -16,12 +16,12 @@ const productSchema = new Schema(
       type: Number,
       required: true,
     },
-    amount: {
-      type: Number,
+    product_amount: {
+      type: String,
       // required: true
     },
   },
   { timestamps: true }
 );
 
-module.exports = mongoose.model("product", productSchema);
+module.exports = mongoose.model("view1", view1Schema);

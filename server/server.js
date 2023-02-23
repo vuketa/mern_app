@@ -16,7 +16,7 @@ app.use((req, res, next) => {
 });
 
 // ROUTES
-app.use("/api/products", productRoutes);
+app.use("/products", productRoutes);
 // CONNECT to DB
 mongoose.set("strictQuery", false);
 mongoose

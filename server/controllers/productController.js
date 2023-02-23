@@ -1,4 +1,5 @@
 const Product = require("../models/productModel");
+const View1 = require("../models/view1Model");
 const mongoose = require("mongoose");
 
 // get all products
@@ -6,6 +7,13 @@ const getProducts = async (req, res) => {
   const products = await Product.find({});
 
   res.status(200).json(products);
+};
+
+// get all view1
+const getView1 = async (req, res) => {
+  const view1 = await View1.find({});
+
+  res.status(200).json(view1);
 };
 
 // get a single product
@@ -69,4 +77,30 @@ module.exports = {
   createProduct,
   deleteProduct,
   updateProduct,
+  getView1,
 };
+
+// [
+//   {
+//     '$lookup': {
+//       'from': 'amount',
+//       'localField': '_id',
+//       'foreignField': 'productId',
+//       'as': 'result'
+//     }
+//   }, {
+//     '$project': {
+//       '_id': 1,
+//       'img': 1,
+//       'name': 1,
+//       'drink': 1,
+//       'cod': 1,
+//       'price': 1,
+//       'product_amount': '$result.product_amount'
+//     }
+//   }, {
+//     '$unwind': {
+//       'path': '$product_amount'
+//     }
+//   }
+// ]
