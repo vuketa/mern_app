@@ -6,7 +6,9 @@ import { CartContent } from "../components";
 
 const CartPage = () => {
   const { cart } = useCartContext();
-  return cart.length < 1 && (
+
+  if (cart.length < 1) {
+    return (
       <Wrapper className="page-100">
         <div className="empty">
           <h4>Your card is empty</h4>
@@ -20,8 +22,7 @@ const CartPage = () => {
         </div>
       </Wrapper>
     );
-  
-
+  }
 
   return (
     <main>
